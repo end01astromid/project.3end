@@ -1,0 +1,57 @@
+### Регистрация
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "username": "Nastya",
+  "password": "12345",
+  "city": "Almaty"
+}
+
+### Авторизация (получить токен)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "Astromid",
+  "password": "123456789"
+}
+
+### Профиль (нужен токен)
+GET http://localhost:3000/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjVmZGE3YTdlZmI2MThlNzQzMTMxZiIsInVzZXJuYW1lIjoiQXN0cm9taWQiLCJpYXQiOjE3NjEwMjc2ODEsImV4cCI6MTc2MTAzMTI4MX0.yKlNG_GoNk7Tqj4ACWEkPZidi0yvJ-NsBVXXWxTUuWE
+
+
+
+
+### Получить пользователя по ID
+GET http://localhost:3000/auth/user/68f5fda7a7efb618e743131f
+
+
+
+
+### Получить всех пользователей из города
+GET http://localhost:3000/auth/users?city=Almaty
+
+
+
+### Смена пароля
+POST http://localhost:3000/twoaction/change-password
+Content-Type: application/json
+
+{
+  "username": "Astromid",
+  "oldPassword": "12345",
+  "newPassword": "123456789"
+}
+
+
+
+### Удаление аккаунта 
+POST http://localhost:3000/twoaction/delete-account
+Content-Type: application/json
+
+{
+  "username": "alex",
+  "password": "12345"
+}
